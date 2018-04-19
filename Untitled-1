@@ -1,0 +1,80 @@
+
+
+
+
+
+
+$(document).ready(function() {
+    const apiKey = '4c89e6d29f0e6b8839b81393ea99a443';
+  
+    $('#a').on('click', function() {
+
+      $.ajax({
+        url: "https://api-2445582011268.apicast.io/games/count",
+        type: "GET",
+        headers: {
+          'user-key': apiKey,
+          'Accept': 'application/json',
+        },
+        success: function(games){
+          let gameCount = games.count;
+          let gameNumber = Math.floor((Math.random() * gameCount) + 1)
+          
+          $.ajax({
+            url: "https://api-2445582011268.apicast.io/games/1372",
+            type: "GET",
+            headers: {
+              'user-key': apiKey,
+              'Accept': 'application/json',
+            },
+            success: function(response) {
+    
+              document.querySelector('main').innerHTML = "";
+              
+              let nameH = document.createElement('h2');
+              let summaryP = document.createElement('p');
+              let containerDiv = document.createElement('div');
+              let cover = document.createElement('img');
+    
+              containerDiv.classList.add('container');
+              nameH.classList.add('title');
+              summaryP.classList.add('p-base');
+              cover.classList.add('picture')
+    
+    
+              /*
+              let name = response[0].name;
+              let summary = response[0].summary;
+              let coverUrl = response[0].cover.url;
+    
+              nameH.innerHTML = name;
+              summaryP.innerHTML = summary;
+              cover.src = coverUrl;
+              
+              nameH.innerHTML = response[0].name;
+              summaryP.innerHTML = response[0].summary;
+              cover.src = response[0].cover.url;
+    
+              containerDiv.appendChild(nameH);
+              containerDiv.appendChild(summaryP);
+              containerDiv.appendChild(cover);
+    
+              document.querySelector('#resultList').appendChild(containerDiv);*/
+              
+              
+            }
+          
+        
+          
+     
+      });
+    });
+  });
+  // Le code doit être ecrit içi
+
+
+// Supprimer tout le contenu de la div de destination (resultList)
+
+// mettre un event listener sur les 3 boutons
+
+// Effectuer une premiere requete Ajax
